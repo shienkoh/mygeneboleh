@@ -56,6 +56,7 @@ def make_preds(model, json_data) :
 
     data = data[data['Read Lengths'] > 1] #Remove rows with reads < 20, since 20 was the minimum in the training set
     data = data.reset_index(drop = True)
+    data = data.head(500)
 
     dwell_left_final = []
     dwell_mid_final = []
