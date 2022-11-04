@@ -343,8 +343,7 @@ def make_preds(model, json_data) :
 
     data['Score'] = test_scores
     data['Label'] = test_preds
-    data.to_csv('data_with_preds_and_scores.csv')
-
+    data.to_csv('data_with_preds_and_scores.csv',index = False)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='To make predictions on test dataset')
