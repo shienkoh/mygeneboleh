@@ -1,7 +1,7 @@
 # Code Documentation for mygeneboleh's DSA4262 project
 
 ## Purpose of script 
-The following documents contain instructions to run the m6A classifier determined by mygeneboleh, as part of the final project for DSA4262 Sense-making Case Analysis : Health and Medicine for Academic Year 2022/23
+The following document contains instructions to run the m6A classifier determined by mygeneboleh, as part of the final project for DSA4262 Sense-making Case Analysis : Health and Medicine for Academic Year 2022/23
 
 ## Installing VS Code
 Code can be run with any editor of your choice, but this documentation will be using Visual Studio Code (VS Code).
@@ -15,6 +15,7 @@ The first step would be to clone the GitHub repository onto your local machine.
 At the homepage  (displayed above), select the option 'Clone Git Repository...', upon which you will be asked to provide the repository URL :
 
 This can be retrieved from GitHub :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/git_url.png)
 
 Select the local directory you wish to clone the repository to, and you are all set!
 
@@ -30,7 +31,7 @@ The former has been uploaded onto the GitHub repository itself, saved as `finali
 
 The latter has also been uploaded, named as `evaluator.json`
 
-Since the script, model and dataset are all within the same directory, the 2 paths are simply `finalized_model.sav` and `evaluator.json`
+> Since the script, model and dataset are all within the same directory, the 2 paths are simply `finalized_model.sav` and `evaluator.json`
 
 More precisely, the following command should be executed :
 
