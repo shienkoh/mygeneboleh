@@ -5,7 +5,7 @@ The following documents contain instructions to run the m6A classifier determine
 
 ## Installing VS Code
 Code can be run with any editor of your choice, but this documentation will be using Visual Studio Code (VS Code).
-This can be downloaded from : https://code.visualstudio.com/download
+This can be downloaded from [here](https://code.visualstudio.com/download) 
 
 After selecting your operating system and opening the application, you will be on VS Code's homepage, which should look like this :
 
@@ -26,18 +26,20 @@ The script has two inputs :
 1) The path to the classifier
 2) The path to the dataset
 
-The former has been uploaded onto the GitHub repository itself, saved as finalized_model.sav
+The former has been uploaded onto the GitHub repository itself, saved as `finalized_model.sav`
 
-The latter has also been uploaded, named as evaluator.json
+The latter has also been uploaded, named as `evaluator.json`
 
-Since the script, model and dataset are all within the same directory, the 2 paths are simply 'finalized_model.sav' and 'evaluator.json'
+Since the script, model and dataset are all within the same directory, the 2 paths are simply `finalized_model.sav` and `evaluator.json`
 
 More precisely, the following command should be executed :
 
+```python
 %run script3.py -ipath 'finalized_model.sav' 'evaluator.json'
+```
 
-The steps above can all be found on the give template. template.ipynb
+The steps above can all be found on the give template, `template.ipynb`
 
-Hence all you need to do is run template.ipynb by opening the file on VS Code and then running the notebook :
+Hence all you need to do is run `template.ipynb` by opening the file on VS Code and then running the notebook :
 
 
