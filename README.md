@@ -3,6 +3,11 @@
 ## Purpose of script 
 The following document contains instructions to run the m6A classifier determined by mygeneboleh, as part of the final project for DSA4262 Sense-making Case Analysis : Health and Medicine for Academic Year 2022/23
 
+## Installing Git
+We will first need to install Git from [here](https://git-scm.com/download)
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/git_home.png)
+
+
 ## Installing VS Code
 Code can be run with any editor of your choice, but this documentation will be using Visual Studio Code (VS Code).
 This can be downloaded from [here](https://code.visualstudio.com/download) 
@@ -13,11 +18,13 @@ After selecting your operating system and opening the application, you will be o
 
 ## Setting up VS Code
 The first step would be to clone the GitHub repository onto your local machine.
-
-At the homepage  (displayed above), select the option 'Clone Git Repository...', upon which you will be asked to provide the repository URL :
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_clone.png)
 
-This can be retrieved from GitHub :
+
+At the homepage  (displayed above), select the option 'Clone Git Repository...', upon which you will be asked to provide the repository URL :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_url.png)
+
+Enter https://github.com/shienkoh/mygeneboleh.git, which can be retrieved from GitHub :
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/git_url.png)
 
 Select the local directory you wish to clone the repository to, and you are all set!
@@ -48,6 +55,7 @@ Hence all you need to do is run `template.ipynb` by opening the file on VS Code 
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/run_all.png)
 
 The script will output a csv filed titled `data_with_preds_and_scores.csv` onto the directory :
+
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/output_example.png)
 
 Alternatively, if you wish to view the dataframe directly on the editor, you can simply run the following commands :
