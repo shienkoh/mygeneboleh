@@ -3,79 +3,81 @@
 ## Purpose of script 
 The following document contains instructions to run the m6A classifier determined by mygeneboleh, as part of the final project for DSA4262 Sense-making Case Analysis : Health and Medicine for Academic Year 2022/23
 
-## Installing Git
-We will first need to install Git from [here](https://git-scm.com/download)
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/git_home.png)
+## Getting started
+We first start an AWS Ubuntu instance on the [Research Gateway Portal](https://research.rlcatalyst.com/catalog/GenomicsProject13/6316e36f623db700a93756aa)
 
+Once the instance has been created, we will search for the InstanceDNSName which can be found under the 'Outputs' tab
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/rg_home.png)
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/get_dns.png)
 
-## Installing VS Code
-Code can be run with any editor of your choice, but this documentation will be using Visual Studio Code (VS Code).
-This can be downloaded from [here](https://code.visualstudio.com/download) 
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_download.png)
+Copy the InstanceDNSName onto your clipboard.
+> This guide will be done on your local terminal. You can simply SSH into the instance and run the commands provided, if you prefer.
 
-After selecting your operating system and opening the application, you will be on VS Code's homepage, which should look like this :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_home.png)
+## SSH
+Open your Terminal application
 
-## Setting up VS Code
-The first step would be to clone the GitHub repository onto your local machine.
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_clone.png)
+SSH into the instance by running the following command :
+`ssh -i (Path to your pem file for the Ubuntu instance) ubuntu@(InstanceDNSName you copied earlier)`
 
+Hence, for someone whose pem file is in his 'Downloads' folder and InstanceDNSName 'ec2-13-229-219-200.ap-southeast-1.compute.amazonaws.com', he will run :
+`ssh -i Downloads/jasin-tut-aws.pem ubuntu@ec2-13-229-219-200.ap-southeast-1.compute.amazonaws.com`
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/ssh.png)
 
-At the homepage  (displayed above), select the option 'Clone Git Repository...', upon which you will be asked to provide the repository URL :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_url.png)
+## Git Clone
+The next step would be to clone [our repository](https://github.com/shienkoh/mygeneboleh.git) into the home directory you just SSH-ed into.
 
-Enter https://github.com/shienkoh/mygeneboleh.git, which can be retrieved from GitHub :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/git_url.png)
+This is done by running : `git clone https://github.com/shienkoh/mygeneboleh.git`
 
-Select the local directory you wish to clone the repository to, and you are all set!
+## Getting the packages
+The script you will be running requires the numpy and sklearn packages on Python.
+We will do this using the `set_up.sh` script created.
+
+First enter the repository.
+`cd mygeneboleh`
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/cd_mygeneboleh.png)
+
+Then run the script. This will take about a minute.
+`sh set_up.sh`
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/run_shell.png)
 
 ## Running the script
+Now you are all set to run the script.
 
-Now, onto running the script itself.
+Run the following command :
+`env/bin/python script3.py -ipath finalized_model.sav evaluator.json`
 
-The script has two inputs :
-1) The path to the classifier
-2) The path to the dataset
+The script will output the predictions file into the current directory, titled 'data_with_preds_and_scores.csv', which can be verified by listing the current files with `ls`.
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/running_script.png)
 
-The former has been uploaded onto the GitHub repository itself, saved as `finalized_model.sav`
+This contains the Transcript ID, Gene ID, Position, aggregated features we used as well as the predicted scores and labels.
 
-The latter has also been uploaded, named as `evaluator.json`
+## Next steps
 
-> Since the script, model and dataset are all within the same directory, the 2 paths are simply `finalized_model.sav` and `evaluator.json`
+You can view and explore the data in 2 ways.
 
-More precisely, the following command should be executed :
-
+### Python on Ubuntu
+Enter Python with `env/bin/python`
+Use pandas to view the data :
 ```python
-%run script3.py -ipath 'finalized_model.sav' 'evaluator.json'
+import pandas as pd
+data = pd.read_csv('data_with_preds_and_scores.csv')
+data
 ```
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/output_python.png)
 
-The steps above can all be found on the given template, `template.ipynb`
+Use `exit()` to exit the Python environment.
 
-Hence all you need to do is run `template.ipynb` by opening the file on VS Code and then running the notebook.
+### Save to local
+You may wish to copy the csv file onto your local machine for you to do further inspections on, say, a Jupyter Notebook.
 
-However, you would first have to install a Python kernal on VS Code.
-When you open `template.ipynb`, you will have the option on the top right of the screen :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/select_kernel.png)
+Logout of the instance : `logout`
 
-Select the option 'Install suggested extensions', and click 'Install' :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/install_kernel.png)
+Copy the csv file into the local directory of your choice with :
+`scp -i (Path to your pem file for the Ubuntu instance) ubuntu@(InstanceDNSName you copied earlier):/home/ubuntu/mygeneboleh/data_with_preds_and_scores.csv (Local directory of your choice)`
 
-After installing the screen should look like this :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/after_install_kernel.png)
-
-Now you can simply click 'Run All' to run the template notebook
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/run_all.png)
-
-The script will output a csv filed titled `data_with_preds_and_scores.csv` onto the directory :
-
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/output_example.png)
-
-Alternatively, if you wish to view the dataframe directly on the editor, you can simply run the following commands :
-```python
-output = pd.read_csv('data_with_preds_and_scores.csv')
-output
-```
-Again, this has been added to `template.ipynb` so the dataframe will appear once the notebook completes its run, as shown here :
-![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/output_df.png)
-
-
+Hence, for a user who :
+1) Has his pem file in his 'Downloads' directory
+2) Has an InstanceDNSName 'ec2-13-229-219-200.ap-southeast-1.compute.amazonaws.com'
+3) Wishes to move the csv file into his 'Downloads' directory
+He will run : 
+`scp -i Downloads/jasin-tut-aws.pem ubuntu@ec2-13-229-219-200.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/mygeneboleh/data_with_preds_and_scores.csv Downloads`
