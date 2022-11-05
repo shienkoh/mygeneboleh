@@ -6,13 +6,16 @@ The following document contains instructions to run the m6A classifier determine
 ## Installing VS Code
 Code can be run with any editor of your choice, but this documentation will be using Visual Studio Code (VS Code).
 This can be downloaded from [here](https://code.visualstudio.com/download) 
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_download.png)
 
 After selecting your operating system and opening the application, you will be on VS Code's homepage, which should look like this :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_home.png)
 
 ## Setting up VS Code
 The first step would be to clone the GitHub repository onto your local machine.
 
 At the homepage  (displayed above), select the option 'Clone Git Repository...', upon which you will be asked to provide the repository URL :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/vs_clone.png)
 
 This can be retrieved from GitHub :
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/git_url.png)
@@ -42,5 +45,15 @@ More precisely, the following command should be executed :
 The steps above can all be found on the give template, `template.ipynb`
 
 Hence all you need to do is run `template.ipynb` by opening the file on VS Code and then running the notebook :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/run_all.png)
 
+The script will output a csv filed titled `data_with_preds_and_scores.csv` onto the directory :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/output_example.png)
+
+Alternatively, if you wish to view the dataframe directly on the editor, you can simply run the following commands :
+```python
+output = pd.read_csv('data_with_preds_and_scores.csv')
+output
+```
+Again, this has been added to `template.ipynb` so the dataframe will appear once the notebook completes its run
 
