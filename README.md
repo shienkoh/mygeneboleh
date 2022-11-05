@@ -49,9 +49,21 @@ More precisely, the following command should be executed :
 %run script3.py -ipath 'finalized_model.sav' 'evaluator.json'
 ```
 
-The steps above can all be found on the give template, `template.ipynb`
+The steps above can all be found on the given template, `template.ipynb`
 
-Hence all you need to do is run `template.ipynb` by opening the file on VS Code and then running the notebook :
+Hence all you need to do is run `template.ipynb` by opening the file on VS Code and then running the notebook.
+
+However, you would first have to install a Python kernal on VS Code.
+When you open `template.ipynb`, you will have the option on the top right of the screen :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/select_kernel.png)
+
+Select the option 'Install suggested extensions', and click 'Install' :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/install_kernel.png)
+
+After installing the screen should look like this :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/after_install_kernel.png)
+
+Now you can simply click 'Run All' to run the template notebook
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/run_all.png)
 
 The script will output a csv filed titled `data_with_preds_and_scores.csv` onto the directory :
@@ -63,5 +75,7 @@ Alternatively, if you wish to view the dataframe directly on the editor, you can
 output = pd.read_csv('data_with_preds_and_scores.csv')
 output
 ```
-Again, this has been added to `template.ipynb` so the dataframe will appear once the notebook completes its run
+Again, this has been added to `template.ipynb` so the dataframe will appear once the notebook completes its run, as shown here :
+![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/output_df.png)
+
 
