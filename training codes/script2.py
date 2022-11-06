@@ -328,7 +328,7 @@ def make_preds(model, json_data) :
     output['transcript_id'] = final_transcripts
     output['transcript_position'] = final_positions
     output['score'] = test_preds
-    output.to_csv('predictions.csv')
+    output.to_csv('predictions.csv', index = False)
 
 
 def parse_arguments():
