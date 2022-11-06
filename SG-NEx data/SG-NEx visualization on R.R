@@ -11,19 +11,6 @@ modified_test$`2-mer` <- recode(modified_test$`2-mer`, '1' = "A", '2' = "G")
 modified_test$`5-mer` <- recode(modified_test$`5-mer`, '1' = "A", '2' = "C", '3' = "T")
 q2 <- mutate(modified_test, `1-mer` = factor(`1-mer`, levels = c("A", "G", "U")))
 
-ggplot(q2) + geom_bar(aes(x = `1-mer`))
-
-ggplot(q2) + geom_bar(aes(x = `1-mer`, fill = Churn), position = "fill") +
-  facet_wrap(~InternetService) +
-  theme(legend.position = "bottom") +
-  labs(title = "Proportion of churn is higher for fibre optic users.")
-
-
-specie <- c(rep("sorgho" , 3) , rep("poacee" , 3) , rep("banana" , 3) , rep("triticum" , 3) )
-condition <- rep(c("normal" , "stress" , "Nitrogen") , 4)
-value <- abs(rnorm(12 , 0 , 15))
-data <- data.frame(specie,condition,value)
-
 positions <- c('first', 'second', 'fifth')
 A <- c(2654, 3186, 4037)
 G <- c(22584, 23238, 0)
