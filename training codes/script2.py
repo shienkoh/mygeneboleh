@@ -115,8 +115,6 @@ def make_preds(model, json_data) :
     data['SD 0'] = sd_mid_final
     data['SD +1'] = sd_right_final
 
-    left = []
-    right = []
     first = []
     second = []
     fifth = []
@@ -131,13 +129,6 @@ def make_preds(model, json_data) :
             first.append(2)
         else :
             first.append(3)
-            
-        if five_mer[6] == 'A' : 
-            right.append(1)
-        elif five_mer[6] == 'G' :
-            right.append(2)
-        else :
-            right.append(6)
         
         #for R, A = 1, G = 2
         
@@ -154,19 +145,10 @@ def make_preds(model, json_data) :
             fifth.append(2)
         else :
             fifth.append(3)
-            
-        if five_mer[0] == 'A':
-            left.append(1)
-        elif five_mer[0] == 'C':
-            left.append(2)
-        else :
-            left.append(3)
     
-    data['right 5-mer'] = left
     data['1-mer'] = first
     data['2-mer'] = second
     data['5-mer'] = fifth
-    data['right 1-mer'] = right
 
     ## Aggregating the reads
     # Taking Mean
