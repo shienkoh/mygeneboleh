@@ -5,6 +5,7 @@ The following document contains instructions to run the m6A classifier determine
 
 ## Getting started
 We first start an AWS Ubuntu instance on the [Research Gateway Portal](https://research.rlcatalyst.com/catalog/GenomicsProject13/6316e36f623db700a93756aa)
+> Please choose a size that is at least large
 
 Once the instance has been created, we will search for the InstanceDNSName which can be found under the 'Outputs' tab
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/rg_home.png)
@@ -56,8 +57,7 @@ This contains the Transcript ID, Gene ID, Position, aggregated features we used 
 You can view and explore the data in 2 ways.
 
 ### Python on Ubuntu
-Enter Python with `env/bin/python`
-Use pandas to view the data :
+Enter Python with `env/bin/python` then use pandas to view the data :
 ```python
 import pandas as pd
 data = pd.read_csv('data_with_preds_and_scores.csv')
@@ -79,5 +79,7 @@ Hence, for a user who :
 1) Has his pem file in his 'Downloads' directory
 2) Has an InstanceDNSName 'ec2-13-229-219-200.ap-southeast-1.compute.amazonaws.com'
 3) Wishes to move the csv file into his 'Downloads' directory
+
 He will run : 
+
 `scp -i Downloads/jasin-tut-aws.pem ubuntu@ec2-13-229-219-200.ap-southeast-1.compute.amazonaws.com:/home/ubuntu/mygeneboleh/data_with_preds_and_scores.csv Downloads`
