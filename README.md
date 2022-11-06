@@ -38,6 +38,7 @@ First enter the repository.
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/cd_mygeneboleh.png)
 
 Then run the script. This will take about a minute.
+
 `sh set_up.sh`
 ![alt text](https://github.com/shienkoh/mygeneboleh/blob/main/images/run_shell.png)
 
@@ -45,6 +46,7 @@ Then run the script. This will take about a minute.
 Now you are all set to run the script.
 
 Run the following command :
+
 `env/bin/python script3.py -ipath finalized_model.sav evaluator.json`
 
 The script will output the predictions file into the current directory, titled 'data_with_preds_and_scores.csv', which can be verified by listing the current files with `ls`.
@@ -73,6 +75,7 @@ You may wish to copy the csv file onto your local machine for you to do further 
 Logout of the instance : `logout`
 
 Copy the csv file into the local directory of your choice with :
+
 `scp -i (Path to your pem file for the Ubuntu instance) ubuntu@(InstanceDNSName you copied earlier):/home/ubuntu/mygeneboleh/data_with_preds_and_scores.csv (Local directory of your choice)`
 
 Hence, for a user who :
